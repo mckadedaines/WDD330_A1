@@ -1,9 +1,21 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  let cartItems = getLocalStorage("so-cart");
+  
+  // Check if cartItems is a string and parse it into an array
+  if (typeof cartItems === "string") {
+    cartItems = JSON.parse(cartItems);
+  }
+
+  // Ensure cartItems is an array before mapping
+  if (Array.isArray(cartItems)) {
+    const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+    document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  } else {
+    // Handle the case where cartItems is not an array
+    console.error("Cart items are not in the expected format:", cartItems);
+  }
 }
 
 function cartItemTemplate(item) {
