@@ -2,6 +2,7 @@ Names:
 - Mckade L. Daines
 - Leon Visnaw
 - Sterling Welker
+- Daniel Gerdes
 
 Team Trello Board:
 - https://trello.com/b/jWSHHCFG/sleepoutside-team-project
