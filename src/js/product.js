@@ -35,4 +35,3 @@ async function addToCartHandler(e) {
 
 const productId = getParam("product");
 console.log(findProductById(productId));
-}

@@ -9,23 +9,24 @@ function renderCartContents() {
 
   // console.log("Cart Items:", cartItems); // Log the cart items
   if (Array.isArray(cartItems)) {
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
-  } else {
-    console.error("Cart items not in expected format:", cartItems);
-  
-  // Check if cartItems is a string and parse it into an array
-  if (typeof cartItems === "string") {
-    cartItems = JSON.parse(cartItems);
-  }
-
-  // Ensure cartItems is an array before mapping
-  if (Array.isArray(cartItems)) {
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(".product-list").innerHTML = htmlItems.join("");
   } else {
-    // Handle the case where cartItems is not an array
-    console.error("Cart items are not in the expected format:", cartItems);
+    console.error("Cart items not in expected format:", cartItems);
+
+    // Check if cartItems is a string and parse it into an array
+    if (typeof cartItems === "string") {
+      cartItems = JSON.parse(cartItems);
+    }
+
+    // Ensure cartItems is an array before mapping
+    if (Array.isArray(cartItems)) {
+      const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+      document.querySelector(".product-list").innerHTML = htmlItems.join("");
+    } else {
+      // Handle the case where cartItems is not an array
+      console.error("Cart items are not in the expected format:", cartItems);
+    }
   }
 }
 
