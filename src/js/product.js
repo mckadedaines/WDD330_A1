@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs"; // Add this line
+import { setLocalStorage, getLocalStorage, getParam } from "./utils.mjs"; // Add this line
 import { findProductById } from "./productData.mjs";
 
 // add listener to Add to Cart button
@@ -29,3 +29,6 @@ async function addToCartHandler(e) {
     alert("There was an error adding the product to the cart.");
   }
 }
+
+const productId = getParam("product");
+console.log(findProductById(productId));
