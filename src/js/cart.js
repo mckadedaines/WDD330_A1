@@ -1,9 +1,9 @@
-import { getLocalStorage, qs } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
   let cartItems = getLocalStorage("so-cart");
 
-  if (typeof cartItems === "stirng") {
+  if (typeof cartItems === "string") {
     cartItems = JSON.parse(cartItems);
   }
 
