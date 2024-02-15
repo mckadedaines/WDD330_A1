@@ -109,6 +109,13 @@ button {
 .cart:hover svg {
   fill: gray;
 }
+.remove-button {
+  grid-column: 3;
+  grid-row: 3;
+  padding: .2em;
+  margin: .1em;
+  border-radius: 8px;
+}
 
 /* End cart icon styles */
 
