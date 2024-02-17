@@ -2,19 +2,22 @@ import { findProductById } from "./productData.mjs";
 import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 
 // Variable to store product data
-let productData = null;
+let productData = {};
 
 // Function to render product details in HTML
 function renderProductDetails() {
-    document.querySelector("h3").textContent = productData.Brand.Name;
-    document.querySelector("h2.divider").textContent = productData.NameWithoutBrand;
-    document.querySelector(".product-detail img").src = productData.Image;
-    document.querySelector(".product-detail img").alt = productData.Name;
-    document.querySelector(".product-card__price").textContent = `$${productData.FinalPrice}`;
-    document.querySelector(".product__color").textContent = productData.Colors[0].ColorName;
-    document.querySelector(".product__description").textContent = productData.DescriptionHtmlSimple;
-    document.getElementById("addToCart").setAttribute("data-id", productData.Id);
-}
+    document.querySelector("#productName").innerText = product.Brand.Name;
+    document.querySelector("#productNameWithoutBrand").innerText =
+      product.NameWithoutBrand;
+    document.querySelector("#productImage").src = product.Images.PrimaryLarge;
+    document.querySelector("#productImage").alt = product.Name;
+    document.querySelector("#productFinalPrice").innerText = product.FinalPrice;
+    document.querySelector("#productColorName").innerText =
+      product.Colors[0].ColorName;
+    document.querySelector("#productDescriptionHtmlSimple").innerHTML =
+      product.DescriptionHtmlSimple;
+    document.querySelector("#addToCart").dataset.id = product.Id;
+  }
 
 // Function to add product to cart
 function addToCart() {
@@ -33,7 +36,7 @@ function addToCart() {
 export default async function productDetails(productId) {
     try {
         productData = await findProductById(productId); // Fetch product data
-        renderProductDetails(productData); // Render product details
+        renderProductDetails(); // Render product details
 
         // Setup Add to Cart button event listener
         document.getElementById("addToCart").addEventListener("click", addToCart);
