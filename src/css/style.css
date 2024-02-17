@@ -91,6 +91,24 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
 }
+
+.remove-button {
+  grid-column: 3;
+  grid-row: 3;
+  width: 3rem;
+  background-color: var(--secondary-color);
+  padding: .5em;
+  margin: .5em 2em;
+  font-size: var(--small-font);
+  box-shadow: 2px 4px 4px var(--light-grey);
+  border-radius: 8px;
+}
+
+.remove-button:hover {
+  background-color: var(--dark-grey);
+  transition: 0.7s;
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -108,13 +126,6 @@ button {
 }
 .cart:hover svg {
   fill: gray;
-}
-.remove-button {
-  grid-column: 3;
-  grid-row: 3;
-  padding: .2em;
-  margin: .1em;
-  border-radius: 8px;
 }
 
 /* End cart icon styles */
