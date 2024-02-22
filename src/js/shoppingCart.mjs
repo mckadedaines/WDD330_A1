@@ -1,5 +1,5 @@
 // New JS file based off of instructors week 5 activity
-import { getLocalStorage, renderListWithTemplate } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, renderListWithTemplate } from "./utils.mjs";
 
 // New function: BEGIN
 export default function ShoppingCart() {

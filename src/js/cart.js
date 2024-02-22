@@ -2,8 +2,8 @@ import { getLocalStorage, setLocalStorage, loadHeaderFooter, renderListWithTempl
 import ShoppingCart from "./shoppingCart.mjs";
 
 loadHeaderFooter();
-// ShoppingCart();
 renderCartItems();
+setLocalStorage();
 
 function renderCartItems() {
   const cartItems = getLocalStorage("so-cart") || [];
@@ -18,6 +18,7 @@ function renderCartItems() {
 }
 
 function renderCartItem(item) {
+  console.log("Image URL", item.image);
   return `
     <li class="cart-card divider">
       <a href="${item.link}" class="cart-card__image">
