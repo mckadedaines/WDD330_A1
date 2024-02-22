@@ -33,7 +33,7 @@ function productCardTemplate(product) {
 
 export default async function productList(selector, category) {
     const el = document.querySelector(selector);
-    const products = await getData(category);
+    const products = await productList(category);
     // const filteredProducts = await filterProducts(products);
     console.log(products);
     renderListWithTemplate(productCardTemplate, el, products);
