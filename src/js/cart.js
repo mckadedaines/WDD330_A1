@@ -36,3 +36,20 @@ function renderCartItem(item) {
 
 // Call ShoppingCart function if it requires initialization
 ShoppingCart();
+
+// To be able to change quantity of items in cart
+
+document.addEventListener('DOMContentLoaded', function() {
+  const quantityInputs = document.querySelectorAll('item.quantity');
+
+  quantityInputs.forEach(function(input) {
+    input.addEventListener('change', function() {
+      updateCartItemQuantity(this);
+    });
+  });
+
+  function updateCartItemQuantity(input) {
+    const quantity = parseInt(input.value);
+    console.log('Quantity updated:', quantity);
+  }
+});
