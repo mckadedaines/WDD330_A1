@@ -9,10 +9,12 @@ export function qs(selector, parent = document) {
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
 }
+
 // save data to local storage
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
+
 // set a listener for both touchend and click
 export function setClick(selector, callback) {
   qs(selector).addEventListener("touchend", (event) => {
@@ -25,6 +27,8 @@ export function setClick(selector, callback) {
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
+  // const product = urlParams.get("product"); This is not in the instructors example
+  // return product;
   return urlParams.get(param);
 }
 
@@ -55,13 +59,12 @@ export async function renderWithTemplate(
   }
   const htmlString = await templateFn(data);
   parentElement.insertAdjacentHTML(position, htmlString);
-  if (callback) {
+   if(callback) {
     callback(data);
-  }
+   }
 }
 
 function loadTemplate(path) {
-  // wait what?  we are returning a new function? this is called currying and can be very helpful.
   return async function () {
     const res = await fetch(path);
     if (res.ok) {
@@ -72,9 +75,6 @@ function loadTemplate(path) {
 }
 
 export async function loadHeaderFooter() {
-  // header template will still be a function! But one where we have pre-supplied the argument.
-  // headerTemplate and footerTemplate will be almost identical, but they will remember the path we passed in when we created them
-  // why is it important that they stay functions?  The renderWithTemplate function is expecting a template function...if we sent it a string it would break, if we changed it to expect a string then it would become less flexible.
   const headerTemplateFn = loadTemplate("/partials/header.html");
   const footerTemplateFn = loadTemplate("/partials/footer.html");
   const headerEl = document.querySelector("#main-header");
