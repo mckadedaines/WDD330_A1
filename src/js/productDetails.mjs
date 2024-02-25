@@ -28,6 +28,13 @@ function addToCart() {
     cartItems.push(product);
     setLocalStorage("so-cart", cartItems); // Storing product data in local storage
     alert("Product added to cart successfully!");
+
+    // Add cart total count
+    let cartCount = getLocalStorage("cart-count") || 0;
+    cartCount++;
+    setLocalStorage("cart-count", cartCount);
+    document.querySelector('#cart-count').textContent = cartCount;
+    document.querySelector('#cart-count-container').className = 'count-container-format'
 }
 
 // Function to render product details in HTML
