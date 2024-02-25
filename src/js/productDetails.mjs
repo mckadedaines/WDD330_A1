@@ -33,8 +33,8 @@ function addToCart() {
     let cartCount = getLocalStorage("cart-count") || 0;
     cartCount++;
     setLocalStorage("cart-count", cartCount);
-    document.querySelector('#cart-count').textContent = cartCount;
-    document.querySelector('#cart-count-container').className = 'count-container-format'
+    document.querySelector("#cart-count").textContent = cartCount;
+    document.querySelector("#cart-count-container").className = "count-container-format"
 }
 
 // Function to render product details in HTML
