@@ -81,4 +81,15 @@ export async function loadHeaderFooter() {
   const footerEl = document.querySelector("#main-footer");
   renderWithTemplate(headerTemplateFn, headerEl);
   renderWithTemplate(footerTemplateFn, footerEl);
+   // Update cart count
+  window.addEventListener("load", () => {
+    const cartCountEl = document.querySelector("#cart-count");
+    // Clear contents
+    cartCountEl.textContent = "";
+    cartCountEl.textContent = getLocalStorage("cart-count") || "";
+    if(getLocalStorage("cart-count")){
+      const cartCountContainer = document.querySelector("#cart-count-container");
+      cartCountContainer.className = "count-container-format";
+    }
+  })
 }
