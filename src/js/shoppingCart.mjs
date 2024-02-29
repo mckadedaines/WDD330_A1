@@ -1,5 +1,3 @@
-
-
 // Code to render cart total: BEGIN
 // New JS code for adding items and displaying total
 import { getLocalStorage, setLocalStorage, renderListWithTemplate } from "./utils.mjs";
