@@ -117,6 +117,10 @@ export async function loadHeaderFooter() {
   })
 }
 
+export function alertMessage(message) {
+    alert("The Error Has Begun!!!\n\n" + message);
+}
+
 // New Code to load cart count
 // export async function loadHeaderFooter() {
 //   const headerTemplateFn = loadTemplate("/partials/header.html");
