@@ -31,6 +31,27 @@ function productCardTemplate(product) {
 //     return filteredProducts;
 // }
 
+// New code
+// export default async function productList(selector, category) {
+//   // Wait for DOMContentLoaded event before executing the code
+//   window.addEventListener("DOMContentLoaded", async () => {
+//     const el = document.querySelector(selector);
+//     const products = await getData(category);
+//     // const filteredProducts = await filterProducts(products);
+//     console.log(products);
+//     renderListWithTemplate(productCardTemplate, el, products);
+    
+//     // Check if element with class 'title' exists before setting its innerHTML
+//     const titleElement = document.querySelector(".title");
+//     if (titleElement) {
+//       titleElement.innerHTML = category;
+//     } else {
+//       console.error("Element with class 'title' not found.");
+//     }
+//   });
+// }
+
+// Original code
 export default async function productList(selector, category) {
     const el = document.querySelector(selector);
     const products = await getData(category);

@@ -32,6 +32,7 @@ export function getParam(param) {
   return urlParams.get(param);
 }
 
+// New code
 export function renderListWithTemplate(
   templateFn,
   parentElement,
@@ -39,12 +40,32 @@ export function renderListWithTemplate(
   position = "afterbegin",
   clear = true
 ) {
+  if (!parentElement) {
+    console.error("Parent element is null.");
+    return; // Exit function if parentElement is null
+  }
+
   if (clear) {
     parentElement.innerHTML = "";
   }
   const htmlString = list.map(templateFn);
   parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
+
+// Orignial Code
+// export function renderListWithTemplate(
+//   templateFn,
+//   parentElement,
+//   list,
+//   position = "afterbegin",
+//   clear = true
+// ) {
+//   if (clear) {
+//     parentElement.innerHTML = "";
+//   }
+//   const htmlString = list.map(templateFn);
+//   parentElement.insertAdjacentHTML(position, htmlString.join(""));
+// }
 
 export async function renderWithTemplate(
   templateFn,
@@ -74,6 +95,7 @@ function loadTemplate(path) {
   };
 }
 
+// Original code
 export async function loadHeaderFooter() {
   const headerTemplateFn = loadTemplate("/partials/header.html");
   const footerTemplateFn = loadTemplate("/partials/footer.html");
@@ -91,5 +113,32 @@ export async function loadHeaderFooter() {
       const cartCountContainer = document.querySelector("#cart-count-container");
       cartCountContainer.className = "count-container-format";
     }
+    console.log(getLocalStorage("cart-count"));
   })
 }
+
+// New Code to load cart count
+// export async function loadHeaderFooter() {
+//   const headerTemplateFn = loadTemplate("/partials/header.html");
+//   const footerTemplateFn = loadTemplate("/partials/footer.html");
+//   const headerEl = document.querySelector("#main-header");
+//   const footerEl = document.querySelector("#main-footer");
+//   renderWithTemplate(headerTemplateFn, headerEl);
+//   renderWithTemplate(footerTemplateFn, footerEl);
+
+//   // Update cart count after DOMContentLoaded event
+//   window.addEventListener("DOMContentLoaded", () => {
+//     const cartCountEl = document.querySelector("#cart-count");
+//     if (cartCountEl) {
+//       // Clear contents
+//       cartCountEl.textContent = "";
+//       cartCountEl.textContent = getLocalStorage("cart-count") || "";
+//       if (getLocalStorage("cart-count")) {
+//         const cartCountContainer = document.querySelector("#cart-count-container");
+//         if (cartCountContainer) {
+//           cartCountContainer.className = "count-container-format";
+//         }
+//       }
+//     }
+//   });
+// }
