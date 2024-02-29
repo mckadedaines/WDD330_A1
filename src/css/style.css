@@ -208,6 +208,23 @@ button {
   margin: 0.5em 0;
 }
 
+.product-card__discount {
+  color: red;
+  font-size: 1.5em;
+}
+
+.product-card__sale {
+  font-size: 1.5em;
+}
+
+.product-card__original-price {
+  font-size: 0.75em;
+}
+#suggestedPrice {
+  text-decoration: line-through;
+}
+
+
 .card__brand {
   font-size: var(--small-font);
 }
