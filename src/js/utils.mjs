@@ -104,7 +104,7 @@ export async function loadHeaderFooter() {
   await renderWithTemplate(headerTemplateFn, headerEl); // creating a steping attempt to verify data is loading properly.
   await renderWithTemplate(footerTemplateFn, footerEl); // creating a steping attempt to verify data is loading properly.
   // Update cart count
-  // document.addEventListener("DOMContentLoaded", () => {
+  // document.addEventListener("DOMContentLoaded", () => { // This is not needed, since we are using await on line 104 and 105.
     const cartCountEl = document.querySelector("#cart-count");
     // Clear contents
     cartCountEl.textContent = "";
