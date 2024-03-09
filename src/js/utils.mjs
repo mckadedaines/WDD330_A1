@@ -101,10 +101,10 @@ export async function loadHeaderFooter() {
   const footerTemplateFn = loadTemplate("/partials/footer.html");
   const headerEl = document.querySelector("#main-header");
   const footerEl = document.querySelector("#main-footer");
-  renderWithTemplate(headerTemplateFn, headerEl);
-  renderWithTemplate(footerTemplateFn, footerEl);
-   // Update cart count
-  window.addEventListener("load", () => {
+  await renderWithTemplate(headerTemplateFn, headerEl); // creating a steping attempt to verify data is loading properly.
+  await renderWithTemplate(footerTemplateFn, footerEl); // creating a steping attempt to verify data is loading properly.
+  // Update cart count
+  // document.addEventListener("DOMContentLoaded", () => { // This is not needed, since we are using await on line 104 and 105.
     const cartCountEl = document.querySelector("#cart-count");
     // Clear contents
     cartCountEl.textContent = "";
@@ -114,7 +114,7 @@ export async function loadHeaderFooter() {
       cartCountContainer.className = "count-container-format";
     }
     console.log(getLocalStorage("cart-count"));
-  })
+  // })
 }
 
 export function alertMessage(message, scroll = true, duration = 3000) {
