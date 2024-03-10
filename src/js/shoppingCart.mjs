@@ -81,6 +81,7 @@ function removeItemFromCart(index) {
     cartItems.splice(index, 1);
     setLocalStorage("so-cart", cartItems);
     renderCartContents();
+    updateCartCount(-1); // Update cart count after removing item
   } else {
     console.error("Cart items not in expected format:", cartItems);
   }
