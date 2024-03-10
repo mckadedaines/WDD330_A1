@@ -6,6 +6,7 @@ export default function ShoppingCart() {
     const cartItems = getLocalStorage("so-cart");
     const outputEl = document.querySelector(".product-list");
     renderListWithTemplate(cartItemTemplate, outputEl, cartItems);
+  addRemoveEventListeners();
     updateTotal(cartItems); // Update total initially
 }
 
